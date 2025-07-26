@@ -343,7 +343,7 @@ export const getSongs = async (): Promise<ISong[]> => {
       nome: "Dai-nos a Benção",
       tom: "D",
       link: "https://www.cifraclub.com.br/carmen-silva/dai-nos-a-bencao/#instrument=keyboard&key=5",
-      momento: [MOMENTO.MARIANO, MOMENTO.EXTRA],
+      momento: [MOMENTO.MARIANO.slug, MOMENTO.EXTRA.slug],
     },
     {
       nome: "Viva a Mãe de Deus e Nossa",
