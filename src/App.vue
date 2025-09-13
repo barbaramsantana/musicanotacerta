@@ -1,28 +1,42 @@
 <script setup lang="ts">
+import logo from './assets/logo.png';
 </script>
 
 <template>
   <VCard variant="text">
-    <VToolbar>
-        <VTabs>
-          <VTab to="/">
-            <span class="text-body-1">
-              Todas
-            </span>
-          </VTab>
-          <VTab to="/tempo">
-            <span class="text-body-1">
-              Tempo
-            </span>
-          </VTab>
-          <VTab to="/momento">
-            <span class="text-body-1">
-              Momento
-            </span>
-          </VTab>
-        </VTabs>
+    <VToolbar
+      style="position: fixed; top: 0; left: 0; width: 100vw; z-index: 1000;"
+      elevation="2"
+    >
+      <VImg
+        :src="logo"
+        alt="Logo"
+        width="100%"
+        height="auto"
+        max-width="150"
+        max-height="140"
+      />
+      <VTabs>
+        <VTab to="/">
+          <span class="text-body-1">
+            Arquivo
+          </span>
+        </VTab>
+        <VTab to="/todas">
+          <span class="text-body-1">
+            Todas
+          </span>
+        </VTab>
+        <VTab to="/momento">
+          <span class="text-body-1">
+            Momento
+          </span>
+        </VTab>
+      </VTabs>
     </VToolbar>
-    <router-view />
+    <div style="padding-top: 100px;">
+      <router-view />
+    </div>
   </VCard>
 </template>
 

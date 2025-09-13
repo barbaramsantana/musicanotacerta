@@ -3,6 +3,7 @@ export interface ISong {
   tom: string;
   link: string;
   momento: string[];
+  lyrics?: string;
 }
 
 export const MOMENTO = {
@@ -90,6 +91,95 @@ export const MOMENTO = {
     nome: "Dízimo",
     slug: "D",
   },
+  LOUVOR_NSA: {
+    nome: "Louvor - Nossa Senhora Aparecida",
+    slug: "LNSA",
+  },
+  ENTRADA_LADAINHA_NSA: {
+    nome: "Entrada - Ladainha Nossa Senhora Aparecida",
+    slug: "ELNSA",
+  },
+  LADAINHA_NSA: {
+    nome: "Ladainha - Nossa Senhora Aparecida",
+    slug: "LNSA",
+  },
+  FINAL_LADAINHA_NSA: {
+    nome: "Final - Ladainha Nossa Senhora Aparecida",
+    slug: "FLNSA",
+  },
+  INVOCACAO_NSA: {
+    nome: "Invocação - Nossa Senhora Aparecida",
+    slug: "INSA",
+  },
+  ENTRADA_NSA: {
+    nome: "Entrada - Nossa Senhora Aparecida",
+    slug: "ENSA",
+  },
+  ENTRADA_IMAGEM_NSA: {
+    nome: "Entrada - Imagem Nossa Senhora Aparecida",
+    slug: "EINSA",
+  },
+  
+  INVOCAOCAO_SANTISSIMA_TRINDADE_NSA: {
+    nome: "Invocação à Santíssima Trindade - Nossa Senhora Aparecida",
+    slug: "ISTNSA",
+  },
+  
+  ATO_NSA: {
+    nome: "Ato Penitencial - Nossa Senhora Aparecida",
+    slug: "ANSA",
+  },
+  
+  GLORIA_NSA: {
+    nome: "Glória - Nossa Senhora Aparecida",
+    slug: "GNSA",
+  },
+  
+  SALMO_NSA: {
+    nome: "Salmo - Nossa Senhora Aparecida",
+    slug: "SLNSA",
+  },
+  
+  ACLAMACAO_NSA: {
+    nome: "Aclamação - Nossa Senhora Aparecida",
+    slug: "ACNSA",
+  },
+  INVOCACAO_ESPIRITO_SANTO_NSA: {
+    nome: "Invocação ao Espírito Santo - Nossa Senhora Aparecida",
+    slug: "IESNSA",
+  },
+  OFERTORIO_NSA: {
+    nome: "Ofertório - Nossa Senhora Aparecida",
+    slug: "ONSA",
+  },
+   SANTO_NSA: {
+    nome: "Santo - Nossa Senhora Aparecida",
+    slug: "SONSA",
+  },
+   COMUNHAO_NSA: {
+    nome: "Comunhão - Nossa Senhora Aparecida",
+    slug: "CONSA",
+  },
+  POS_NSA: {
+    nome: "Pós - Nossa Senhora Aparecida",
+    slug: "PNSA",
+  },
+  CONSAGRACAO_NSA: {
+    nome: "Consagração - Nossa Senhora Aparecida",
+    slug: "CNSA",
+  },
+  COROACAO_NSA: {
+    nome: "Coroação - Nossa Senhora Aparecida",
+    slug: "CORNSA",
+  },
+  EXTRA_NSA: {
+    nome: "Extra - Nossa Senhora Aparecida",
+    slug: "EXNSA",
+  },
+  FINAL_NSA: {
+    nome: "Final - Nossa Senhora Aparecida",
+    slug: "FNSA",
+  },
 };
 
 export const getSongs = async (): Promise<ISong[]> => {
@@ -99,6 +189,7 @@ export const getSongs = async (): Promise<ISong[]> => {
       tom: "C",
       link: "https://www.cifraclub.com.br/frei-fabreti/tu-es-rei-dos-reis/#instrument=keyboard&key=3",
       momento: [MOMENTO.ENTRADA.slug],
+      lyrics: ""
     },
     {
       nome: "Eu Confesso",
@@ -180,8 +271,8 @@ export const getSongs = async (): Promise<ISong[]> => {
     },
     {
       nome: "A Nós Descei, Divina Luz",
-      tom: "D",
-      link: "https://www.cifraclub.com.br/catolicas/a-nos-descei-divina-luz/#instrument=keyboard",
+      tom: "C",
+      link: "https://www.cifraclub.com.br/catolicas/a-nos-descei-divina-luz/#instrument=keyboard&tabs=false&key=3",
       momento: [MOMENTO.ESPIRITO_SANTO.slug, MOMENTO.EXTRA.slug],
     },
     {
@@ -216,7 +307,7 @@ export const getSongs = async (): Promise<ISong[]> => {
     {
       nome: "Eu Sou Dizimista",
       tom: "D",
-      link: "https://www.cifraclub.com.br/eliana-ribeiro/dia-de-festa/#instrument=keyboard&key=3",
+      link: "https://www.cifraclub.com.br/grupo-palestrina-de-curitiba/sou-dizimista-entrada/#tabs=false&instrument=keyboard&key=5",
       momento: [MOMENTO.DIZIMO.slug],
     },
     {
@@ -776,6 +867,702 @@ export const getSongs = async (): Promise<ISong[]> => {
       link: "https://www.cifraclub.com.br/eugenio-jorge/este-pranto-em-minhas-maos/#instrument=keyboard",
       momento: [MOMENTO.OFERTORIO.slug],
     },
+
+  {
+    nome: "Só em aparecida nos temos",
+    tom: "A",
+    link: "",
+    momento: [MOMENTO.LOUVOR_NSA.slug],
+    lyrics: `
+  A      E            A               
+Só em Aparecida nós temos 
+      D        E         A
+uma festa bonita assim. 
+      D          E            A   F#m
+É o começo de lá do céeeeeu, 
+      Bm             E             A
+onde a festa não tem mais fim. 
+
+  A             E                  A               
+1. Virgem Santa do céu rainha, 
+      D              E                   A
+nosso amor, nossa Mãe querida. 
+      D                     E            A   F#m
+Sempre vossos queremos ser, 
+      Bm             E             A
+sois o encanto de nossa vida. 
+
+A             E                  A               
+Só em Aparecida nós temos 
+      D        E         A
+uma festa bonita assim. 
+      D          E            A   F#m
+É o começo de lá do céeeeeu, 
+      Bm             E             A
+onde a festa não tem mais fim. 
+
+    A             E           A               
+2. Na cidade abençoada 
+      D                E     A
+de Sergipe, filha feliz.
+      D                  E      A   F#m
+Este povo com amor celebra
+        Bm   E          A
+nossa Santa imperatriz. 
+
+A             E                  A               
+Só em Aparecida nós temos 
+      D        E         A
+uma festa bonita assim. 
+      D          E            A   F#m
+É o começo de lá do céeeeeu, 
+      Bm             E             A
+onde a festa não tem mais fim. 
+    A             E           A               
+3. Maniçoba, terra querida, 
+      D                E     A
+grande graça o povo te diz: 
+      D                  E      A   F#m
+Ser chamada de Aparecida, 
+        Bm   E          A
+mãe da graça pelo seu sim.
+
+A             E                  A               
+Só em Aparecida nós temos 
+      D        E         A
+uma festa bonita assim. 
+      D          E            A   F#m
+É o começo de lá do céeeeeu, 
+      Bm             E             A
+onde a festa não tem mais fim. 
+
+    A             E           A
+4. Virgem Mãe Aparecida, 
+      D                E     A
+nós viemos te pedir. 
+      D                  E      A   F#m
+Derramai bênçãos do céu 
+        Bm   E          A
+e o teu povo fica feliz.
+
+A             E                  A               
+Só em Aparecida nós temos 
+      D        E         A
+uma festa bonita assim. 
+      D          E            A   F#m
+É o começo de lá do céeeeeu, 
+      Bm             E             A
+onde a festa não tem mais fim
+
+    `
+  },
+  {
+    nome: "Senhora e Rainha",
+    tom: "A",
+    link: "https://www.cifraclub.com.br/padre-zezinho/senhora-e-rainha/#tabs=false&instrument=keyboard&key=0",
+    momento: [MOMENTO.LOUVOR_NSA.slug],
+    lyrics: `
+       A                                                
+O povo te chama de Nossa Senhora por causa de Nosso 
+    E7
+Senhor
+   D                                                   
+O povo te chama de mãe e rainha porque Jesus Cristo é o
+  A      E
+ Rei do Céu
+   A                                 A7                
+E por não te ver como desejaria, te vê com os olhos da 
+ D
+fé
+                           A                 F#m       
+Por isso ele coroa a tua imagem, Maria, por seres a mãe
+       E7
+ de Jesus
+       A              E7         A  A7
+Por seres a mãe de Jesus de Nazaré
+
+          D                                  A     
+Como é bonita uma religião que se lembra da mãe de 
+      F#m
+Jesus
+        Bm     E7            A7
+Mais bonito é saber quem tu és
+        D                                         
+Não és deusa, não és mais que Deus, mas depois de 
+   A            F#m
+Jesus, o Senhor
+      Bm        E7        A
+Neste mundo ninguém foi maior
+
+A                                               
+Aquele que lê a Palavra Divina por causa de Nosso 
+      E7
+Senhor
+    D
+Já sabe que o Livro de Deus nos ensina que só Jesus 
+Cristo é o
+ A         E
+ Intercessor
+   A                                    A7          
+Porém, se podemos orar pelos outros, a mãe de Jesus 
+      D
+pode mais
+                         A                 F#m         
+Por isso te pedimos em prece, ó Maria, que leves o povo
+        E7
+ a Jesus
+     A             E7             A   A7
+Porque de levar a Jesus entendes mais
+    `
+  },
+  {
+    nome: "Só por que você veio",
+    tom: "A",
+    link: "https://www.cifraclub.com.br/padre-reginaldo-manzotti/so-porque-voce-veio/#tabs=false&instrument=keyboard&key=0",
+    momento: [MOMENTO.LOUVOR_NSA.slug],
+    lyrics: `
+  A             F#m7             D9    E9      A  E7
+Só porque você veio é festa no céu é festa aqui
+ A             F#m7             D9    E9      A  A7
+Só porque você veio é festa no céu é festa aqui
+ D9   E9         C#m7     F#m7      Bm         E7        A    A7
+Com um aperto de mão, um abraço apertado, um sorriso bem largo
+ D9   E9       C#m7      F#m7 Bm        E7         A
+Vamos louvar a Deus que está aqui, que está ao seu lado
+    `
+  },
+  {
+    nome: "Anjos de Deus",
+    tom: "A",
+    link: "https://www.cifraclub.com.br/padre-marcelo-rossi/anjos-de-deus/#tabs=false&instrument=keyboard&key=0",
+    momento: [MOMENTO.LOUVOR_NSA.slug],
+    lyrics: `
+     A                                  E
+Se acontecer um barulho perto de você
+                             D
+É um anjo chegando para receber
+                           F#m E
+Suas orações e leva-las a De___us
+   A                                E
+Então abra o coração e comece a louvar
+
+Sinta o gosto do céu 
+                     D
+Que se derrama no altar
+
+Que um anjo já vem 
+                  F#m E
+Com a benção nas mã___os
+
+[Refrão]
+
+ A                        E
+Tem anjos voando neste lugar
+                                D
+No meio do povo e em cima do altar
+
+Subindo e descendo 
+                 A  E
+Em todas as direçõ__es
+     A                    
+Não sei se a igreja subiu 
+                E
+Ou se o céu desceu
+                                   D
+Só sei que está cheio de anjos de Deus
+                  E           A  E
+Porque o próprio Deus está aqui
+
+ A                        E
+Tem anjos voando neste lugar
+                                D
+No meio do povo e em cima do altar
+
+Subindo e descendo 
+                 A  E
+Em todas as direçõ__es
+     A                    
+Não sei se a igreja subiu 
+                E
+Ou se o céu desceu
+                                   D
+Só sei que está cheio de anjos de Deus
+                  E           A  E
+Porque o próprio Deus está aqui
+
+[Segunda Parte]
+
+  A                      
+Quando os anjos passeiam 
+              E
+A igreja se alegra
+
+Ela canta, ela chora
+              D
+Ela ri e congrega
+                             F#m E
+Abala o inferno e dissipa o mal
+ A                                 E
+Sinta o vento das asas dos anjos agora
+                           D
+Confia irmão pois é a tua hora
+                              F#m E
+A benção chegou e você vai levar
+
+[Refrão]
+
+ A                        E
+Tem anjos voando neste lugar
+                                D
+No meio do povo e em cima do altar
+
+Subindo e descendo 
+                 A  E
+Em todas as direçõ__es
+     A                    
+Não sei se a igreja subiu 
+                E
+Ou se o céu desceu
+                                   D
+Só sei que está cheio de anjos de Deus
+                  E           A  
+Porque o próprio Deus está aqui
+
+[Primeira Parte]
+
+ A                                  E
+Se acontecer um barulho perto de você
+                             D
+É um anjo chegando para receber
+                           F#m E
+Suas orações e leva-las a De___us
+   A                                E
+Então abra o coração e comece a louvar
+
+Sinta o gosto do céu 
+                     D
+Que se derrama no altar
+
+Que um anjo já vem 
+                  F#m E
+Com a benção nas mã___os
+
+[Refrão]
+
+ A                        E
+Tem anjos voando neste lugar
+                                D
+No meio do povo e em cima do altar
+
+Subindo e descendo 
+                 A  E
+Em todas as direçõ__es
+     A                    
+Não sei se a igreja subiu 
+                E
+Ou se o céu desceu
+                                   D
+Só sei que está cheio de anjos de Deus
+                  E           A  E
+Porque o próprio Deus está aqui
+
+[Segunda Parte]
+
+  A                      
+Quando os anjos passeiam 
+              E
+A igreja se alegra
+
+Ela canta, ela chora
+              D
+Ela ri e congrega
+                             F#m E
+Abala o inferno e dissipa o mal
+ A                                 E
+Sinta o vento das asas dos anjos agora
+                           D
+Confia irmão pois é a tua hora
+                              F#m E
+A benção chegou e você vai levar
+
+[Refrão]
+
+ A                        E
+Tem anjos voando neste lugar
+                                D
+No meio do povo e em cima do altar
+
+Subindo e descendo 
+                 A  E
+Em todas as direçõ__es
+     A                    
+Não sei se a igreja subiu 
+                E
+Ou se o céu desceu
+                                   D
+Só sei que está cheio de anjos de Deus
+                  E           A  
+Porque o próprio Deus está aqui
+    `
+  },
+  {
+    nome: "Quem é este povo?",
+    tom: "D",
+    link: "https://www.cifraclub.com.br/catolicas/quem-e-este-povo/#tabs=false&instrument=keyboard&key=5",
+    momento: [MOMENTO.LOUVOR_NSA.slug],
+    lyrics: `
+                    D               Em
+1. Quem é esse povo? Que povo é esse?
+          A7                    D
+Esse é o povo que vai morar no céu.
+             D               Em
+Quem é esse povo? Que povo é esse?
+          A7                    D     D7
+Esse é o povo que vai morar no céu.
+
+       G          A          D          Bm         Em  
+Vai morar, vai morar, vai morar, vai morar, vai morar, 
+       A7        D  D7
+vai morar lá no céu.
+       G          A          D          Bm         Em  
+Vai morar, vai morar, vai morar, vai morar, vai morar, 
+       A7        D
+vai morar lá no céu.
+
+              D             Em
+2. Como é gostoso sentir o gozo,
+          A7                    D
+Com esse povo que vai morar no céu.
+           D             Em
+Como é gostoso sentir o gozo,
+          A7                    D    D7
+Com esse povo que vai morar no céu.
+    `
+  },
+  {
+    nome: "Maria o magnificat cantou",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.ENTRADA_LADAINHA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Em nome do pai",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.INVOCACAO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "1 A nos descei divina luz",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.LADAINHA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "2 ladainha",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.LADAINHA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "3 pai nosso",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.LADAINHA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "4 ave maria",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.LADAINHA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "5 gloria ao pai",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.LADAINHA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "6 senhor tende piedade de nos",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.LADAINHA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "6 maria ouvi nossa voz",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.LADAINHA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "6 maria ouvi nossa voz",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.LADAINHA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "7 cordeiro de deus",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.LADAINHA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Medley",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.FINAL_LADAINHA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Á senhor aparecida",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.ENTRADA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "1 Desde pequenininho",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.ENTRADA_IMAGEM_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "2 La no altar de aparecida",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.ENTRADA_IMAGEM_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Em nome do pai",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.INVOCAOCAO_SANTISSIMA_TRINDADE_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Eu confesso",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.ATO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Gloria anjos do céu",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.GLORIA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "GLoria a Deus nas alturas",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.GLORIA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "SALMO TARDE",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.SALMO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "SALMO NOITE",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.SALMO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+   {
+    nome: "SALMO dia 12",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.SALMO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+   {
+    nome: "Aleluia minha alma abrirei",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.ACLAMACAO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+   {
+    nome: "Acla maior",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.ACLAMACAO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Vem espirito... sozinho eu não posso mais",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.INVOCACAO_ESPIRITO_SANTO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Servo por amor",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.OFERTORIO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Santo - ministério amor e adoração",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.SANTO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Maria de Deus senhora da paz",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.COMUNHAO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Ave maria sertaneja",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.POS_NSA.slug],
+    lyrics: `
+
+    `
+  },
+   {
+    nome: "Romaria",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.POS_NSA.slug],
+    lyrics: `
+
+    `
+  },
+   {
+    nome: "Perfeito é quem te criou",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.COROACAO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Perfeito é quem te criou",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.CONSAGRACAO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Consagração à nossa senhora",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.CONSAGRACAO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Dai-nos a benção",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.CONSAGRACAO_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Parabéns pra você",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.EXTRA_NSA.slug],
+    lyrics: `
+
+    `
+  },
+  {
+    nome: "Medley",
+    tom: "",
+    link: "",
+    momento: [MOMENTO.FINAL_NSA.slug],
+    lyrics: `
+
+    `
+  },
   ];
   return new Promise((resolve) => {
     resolve(songs);
