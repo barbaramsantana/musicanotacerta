@@ -82,6 +82,10 @@ const decreaseZoom = () => {
   zoom.value = Math.max(zoom.value - 0.1, 0.5);
 };
 
+const handlerInputUpload = () => {
+  fileInput.value?.click();
+};
+
 onBeforeUnmount(() => {
   stopScroll();
 });
@@ -103,7 +107,7 @@ onBeforeUnmount(() => {
 
     <!-- Botão de upload -->
     <div class="upload-button">
-      <button @click="$refs.fileInput.click()" class="icon-button" title="Carregar HTML">
+      <button @click="handlerInputUpload" class="icon-button" title="Carregar HTML">
         <v-icon size="24">mdi-file-upload-outline</v-icon>
       </button>
       <input
