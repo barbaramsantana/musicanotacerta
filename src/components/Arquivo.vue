@@ -119,8 +119,15 @@ onBeforeUnmount(() => {
       />
     </div>
 
+    <div class="scroll-button">
+      <button @click="scrollContainer?.scrollTo({ top: 0, behavior: 'smooth' })" class="icon-button">
+        <v-icon size="24">mdi-arrow-up-bold-circle-outline</v-icon>
+      </button>
+    </div>
+
     <!-- Menu de controles -->
     <div class="control-menu">
+      
       <button v-if="!scrolling" class="mr-2" @click="startScroll">
         <v-icon>mdi-play</v-icon>
       </button>
@@ -174,11 +181,25 @@ onBeforeUnmount(() => {
   background: transparent;
   position: relative;
   z-index: 1;
-  top: 75px;
   transform-origin: top left;
 }
 
 .upload-button {
+  position: absolute;
+  bottom: 150px;
+  right: 55px;
+  z-index: 20;
+  background: #000;
+  padding: 4px 6px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+}
+
+.scroll-button {
   position: absolute;
   bottom: 150px;
   right: 15px;
