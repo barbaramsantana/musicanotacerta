@@ -110,18 +110,13 @@ export function calculateEaster(year: number): Date {
 
 export function getLiturgicalCalendar(date: Date = new Date()): LiturgicalInfo {
   const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getDate();
 
   const startOfYear = new Date(year, 0, 1);
   const dayOfYear = Math.floor((date.getTime() - startOfYear.getTime()) / (1000 * 60 * 60 * 24)) + 1;
-  const endOfYear = new Date(year, 11, 31);
   const yearProgress = Math.round((dayOfYear / 365) * 100);
 
   // Calcular a data da Páscoa para o ano atual
   const easter = calculateEaster(year);
-  const easterMonth = easter.getMonth();
-  const easterDay = easter.getDate();
 
   // Definir os períodos litúrgicos
   let currentPeriod: LiturgicalPeriod;
@@ -133,7 +128,6 @@ export function getLiturgicalCalendar(date: Date = new Date()): LiturgicalInfo {
 
   // Tempo de Natal (25 de dezembro a 5 de janeiro)
   const christmasStart = new Date(year, 11, 25);
-  const christmasEnd = new Date(year + 1, 0, 5);
 
   // Tempo da Epifania (6 de janeiro até terça-feira antes da Quaresma)
   const epiphanyStart = new Date(year, 0, 6);
@@ -256,8 +250,6 @@ export function getLiturgicalCalendar(date: Date = new Date()): LiturgicalInfo {
 
 export function getImportantDates(year: number): Array<{ date: Date; name: string; importance: 'major' | 'minor' }> {
   const easter = calculateEaster(year);
-  const easterMonth = easter.getMonth();
-  const easterDay = easter.getDate();
 
   const dates = [
     // Festas de Guarda (maiores)

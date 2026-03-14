@@ -27,38 +27,6 @@ const features = ref([
   }
 ]);
 
-const moments = ref([
-  {
-    title: 'Entrada',
-    icon: 'mdi-play-circle',
-    description: 'Músicas para a procissão de entrada'
-  },
-  {
-    title: 'Hino Inicial',
-    icon: 'mdi-music',
-    description: 'Cantos para louvor e acolhimento'
-  },
-  {
-    title: 'Ofertório',
-    icon: 'mdi-gift',
-    description: 'Músicas para o momento da oferta'
-  },
-  {
-    title: 'Comunhão',
-    icon: 'mdi-bread-slice',
-    description: 'Cantos para a distribuição do Corpo de Cristo'
-  },
-  {
-    title: 'Saída',
-    icon: 'mdi-exit-run',
-    description: 'Músicas para o envio e bênção final'
-  },
-  {
-    title: 'Adoração',
-    icon: 'mdi-heart',
-    description: 'Para momentos de oração e contemplação'
-  }
-]);
 
 const router = useRouter();
 const abrirArquivoLarges = () => {
