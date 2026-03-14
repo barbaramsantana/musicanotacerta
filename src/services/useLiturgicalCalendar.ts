@@ -56,7 +56,7 @@ export function getDefaultMinistryDates(): MinistryDate[] {
       description: 'Lages',
       color: '#FF6B9D',
       link: 'https://docs.google.com/document/d/1AF0qlMxd7OZTg-qpAPsNYTtW-f3RM7wz/edit?usp=sharing&ouid=116940039726088334116&rtpof=true&sd=true',
-      arquivo: 'larges.html',
+      arquivo: 'lages.html',
     },
     {
       date: new Date(2026, 2, 22),

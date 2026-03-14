@@ -29,8 +29,8 @@ const features = ref([
 
 
 const router = useRouter();
-const abrirArquivoLarges = () => {
- router.push({ name: 'Arquivo', query: { file: "larges.html" } });
+const abrirArquivo = (fileName: string) => {
+ router.push({ name: 'Arquivo', query: { file: fileName } });
 }
 </script>
 
@@ -67,13 +67,13 @@ const abrirArquivoLarges = () => {
               Por Momento
             </VBtn>
              <VBtn
-              @click="abrirArquivoLarges"
+              @click="abrirArquivo('lages.html')"
               size="large"
               variant="outlined"
               class="border-white text-white px-8"
             >
               <VIcon start>mdi-music</VIcon>
-              Larges
+              Lages
             </VBtn>
           </div>
         </div>
