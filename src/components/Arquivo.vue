@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 
 const htmlContent = ref("");
 const scrollContainer = ref<HTMLDivElement | null>(null);
@@ -13,7 +16,8 @@ let lastTime = 0;
 let scrollOffset = 0;
 
 onMounted(async () => {
-  const response = await fetch("/musica.html");
+  const file = route.query.file as string || "/musica.html";
+  const response = await fetch(file);
   htmlContent.value = await response.text();
 });
 

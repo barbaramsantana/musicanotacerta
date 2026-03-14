@@ -19,6 +19,11 @@ import logo from './assets/logo.png';
       <VTabs>
         <VTab to="/">
           <span class="text-body-1">
+            Home
+          </span>
+        </VTab>
+        <VTab to="/arquivo">
+          <span class="text-body-1">
             Arquivo
           </span>
         </VTab>
@@ -32,9 +37,14 @@ import logo from './assets/logo.png';
             Momento
           </span>
         </VTab>
+        <VTab to="/calendario">
+          <span class="text-body-1">
+            Calendário Litúrgico
+          </span>
+        </VTab>
       </VTabs>
     </VToolbar>
-    <div style="padding-top: 100px;">
+    <div style="padding-top: 75px;">
       <router-view />
     </div>
   </VCard>

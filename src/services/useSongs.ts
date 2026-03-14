@@ -6,6 +6,26 @@ export interface ISong {
   lyrics?: string;
 }
 
+export const ITempo = {
+  ADVENTO: "Advento",
+  NATAL: "Natal",
+  SAGRADA_FAMILIA: "Sagrada Família",
+  BATISMO_SENHOR: "Batismo do Senhor",
+  COMUM: "Comum",
+  QUARESMA: "Quaresma",
+  PASCOA: "Pascoa",
+  PENTECOSTES: "Pentecostes",
+  SANTISSIMA_TRINDADE: "Santíssima Trindade",
+  CORPUS_CHRISTI: "Corpus Christi",
+  SAO_PEDRO_E_SAO_PAULO: "São Pedro e São Paulo",
+  SANTA_TEREZINHA: "Santinha Terezinha",
+  NS_APARECIDA: "Nossa Senhora Aparecida",
+  TODOS_SANTOS: "Todos os Santos",
+  FINADOS: "Finados",
+  REI_DO_UNIVERSO: "Rei do Universo",
+}
+
+
 export const MOMENTO = {
   ENTRADA: {
     nome: "Entrada",
