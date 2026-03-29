@@ -3,6 +3,18 @@
  * Calcula os tempos litúrgicos e as festas mais importantes
  */
 
+// Cores litúrgicas baseadas nas variáveis CSS
+const LITURGICAL_COLORS = {
+  branco: '#FFFFFF',
+  vermelho: '#FF0000',
+  verde: '#006400',
+  roxo: '#7030A0',
+  preto: '#000000',
+  rosa: '#FFC0CB',
+  dourado: '#FFD700',
+  azul: '#0000FF'
+};
+
 interface LiturgicalPeriod {
   name: string;
   description: string;
@@ -52,19 +64,25 @@ export function getDefaultMinistryDates(): MinistryDate[] {
   return [
     {
       date: new Date(2026, 2, 14),
-      title: 'Escala de Ministério',
-      description: 'Lages',
-      color: '#FF6B9D',
+      title: 'Festa de São josé',
+      description: 'Povoado Lages',
+      color: LITURGICAL_COLORS.roxo,
       link: 'https://docs.google.com/document/d/1AF0qlMxd7OZTg-qpAPsNYTtW-f3RM7wz/edit?usp=sharing&ouid=116940039726088334116&rtpof=true&sd=true',
       arquivo: 'lages.html',
     },
     {
       date: new Date(2026, 2, 22),
-      title: 'Escala de Ministério',
+      title: 'Missa dominical',
       description: 'Dominical 9h',
-      color: '#FF6B9D'
+      color: LITURGICAL_COLORS.roxo
+    },
+    {
+      date: new Date(2026, 5, 7),
+      title: 'Festa de Santo Antônio',
+      description: 'Povoado Algodão',
+      color: LITURGICAL_COLORS.verde
     }
-  ];
+  ].filter(d => d.date >= new Date());
 }
 
 export function addMinistryDate(date: Date, title: string, description?: string): void {
@@ -73,7 +91,7 @@ export function addMinistryDate(date: Date, title: string, description?: string)
     date,
     title,
     description,
-    color: '#FF6B9D'
+    color: LITURGICAL_COLORS.rosa
   });
   localStorage.setItem(MINISTRY_DATES_KEY, JSON.stringify(dates));
 }
@@ -152,7 +170,7 @@ export function getLiturgicalCalendar(date: Date = new Date()): LiturgicalInfo {
       description: 'Tempo de preparação espiritual para o Natal. Período de esperança e renovação.',
       startDate: adventStart,
       endDate: adventEnd,
-      color: '#8B008B',
+      color: LITURGICAL_COLORS.roxo,
       icon: 'mdi-candle',
       symbolism: 'Preparação e esperança'
     },
@@ -161,7 +179,7 @@ export function getLiturgicalCalendar(date: Date = new Date()): LiturgicalInfo {
       description: 'Celebração do nascimento de Jesus Cristo. Tempo de alegria e encarnação do Verbo divino.',
       startDate: christmasStart,
       endDate: new Date(year, 11, 31),
-      color: '#C41E3A',
+      color: LITURGICAL_COLORS.branco,
       icon: 'mdi-star',
       symbolism: 'Incarnação e alegria'
     },
@@ -170,7 +188,7 @@ export function getLiturgicalCalendar(date: Date = new Date()): LiturgicalInfo {
       description: 'Período do calendário litúrgico entre Natal e Quaresma. Reflete sobre a vida de Jesus.',
       startDate: new Date(year + 1, 0, 1),
       endDate: new Date(year + 1, 0, 5),
-      color: '#228B22',
+      color: LITURGICAL_COLORS.verde,
       icon: 'mdi-leaf',
       symbolism: 'Vida de Jesus Cristo'
     },
@@ -179,7 +197,7 @@ export function getLiturgicalCalendar(date: Date = new Date()): LiturgicalInfo {
       description: 'Manifestação de Jesus aos magos do Oriente. Celebra a revelação de Jesus a todas as nações.',
       startDate: epiphanyStart,
       endDate: epiphanyEnd,
-      color: '#FFD700',
+      color: LITURGICAL_COLORS.dourado,
       icon: 'mdi-brightness-7',
       symbolism: 'Manifestação e Luz'
     },
@@ -188,7 +206,7 @@ export function getLiturgicalCalendar(date: Date = new Date()): LiturgicalInfo {
       description: 'Período de 40 dias de penitência e preparação para a Páscoa. Tempo de conversão e oração.',
       startDate: lentStart,
       endDate: lentEnd,
-      color: '#8B4513',
+      color: LITURGICAL_COLORS.roxo,
       icon: 'mdi-cross',
       symbolism: 'Penitência e conversão'
     },
@@ -197,7 +215,7 @@ export function getLiturgicalCalendar(date: Date = new Date()): LiturgicalInfo {
       description: 'Pico do ano litúrgico. Celebração da Ressurreição de Jesus Cristo e esperança da salvação.',
       startDate: easterStart,
       endDate: easterOctaveEnd,
-      color: '#32CD32',
+      color: LITURGICAL_COLORS.branco,
       icon: 'mdi-flower-tulip',
       symbolism: 'Ressurreição e Vida'
     },
@@ -206,7 +224,7 @@ export function getLiturgicalCalendar(date: Date = new Date()): LiturgicalInfo {
       description: 'Cinquenta dias de alegria pascal, culminando em Pentecostes, quando o Espírito Santo é enviado.',
       startDate: new Date(easterOctaveEnd.getTime() + 1 * 24 * 60 * 60 * 1000),
       endDate: easterSeasonEnd,
-      color: '#FF4500',
+      color: LITURGICAL_COLORS.vermelho,
       icon: 'mdi-fire',
       symbolism: 'Espírito Santo e Comunidade'
     },
@@ -215,7 +233,7 @@ export function getLiturgicalCalendar(date: Date = new Date()): LiturgicalInfo {
       description: 'Período após Pentecostes. Reflete sobre a vida ordinária e as virtudes cristãs.',
       startDate: new Date(easterSeasonEnd.getTime() + 1 * 24 * 60 * 60 * 1000),
       endDate: adventStart,
-      color: '#228B22',
+      color: LITURGICAL_COLORS.verde,
       icon: 'mdi-leaf',
       symbolism: 'Vida de Jesus Cristo'
     }

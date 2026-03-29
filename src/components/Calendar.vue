@@ -149,99 +149,76 @@ const redirecionarPagina = (link: string) => {
         </VCard>
       </VCol>
       <VCol cols="12" sm="12" md="4">
-        <!-- Calendário -->
-        <VCard elevation="2" class="pa-6">
-          <VCardTitle class="text-h6 font-weight-bold mb-6">
+        <!-- Calendário Compacto -->
+        <VCard elevation="2" class="pa-3">
+          <VCardTitle class="text-subtitle-2 font-weight-bold mb-3">
             Calendário
           </VCardTitle>
 
           <!-- Navegação de Mês -->
-          <div class="d-flex align-center justify-space-between mb-6">
-            <VBtn icon @click="previousMonth" size="small" variant="text">
-              <VIcon>mdi-chevron-left</VIcon>
+          <div class="d-flex align-center justify-space-between mb-3">
+            <VBtn icon @click="previousMonth" size="x-small" variant="text">
+              <VIcon size="small">mdi-chevron-left</VIcon>
             </VBtn>
-            <div class="text-body-1 font-weight-bold">{{ monthYear }}</div>
-            <VBtn icon @click="nextMonth" size="small" variant="text">
-              <VIcon>mdi-chevron-right</VIcon>
+            <div class="text-caption font-weight-bold">{{ monthYear }}</div>
+            <VBtn icon @click="nextMonth" size="x-small" variant="text">
+              <VIcon size="small">mdi-chevron-right</VIcon>
             </VBtn>
           </div>
 
           <!-- Cabeçalho do Calendário -->
-          <VRow class="justify-content-between">
-              <!-- <div v-for="dayName in ['D', 'S', 'T', 'Q', 'Q', 'S', 'S']" :key="dayName" class="text-center font-weight-bold text-primary">{{ dayName }}</div> -->
-          </VRow>
+          <div class="d-flex mb-2">
+            <div v-for="dayName in ['D', 'S', 'T', 'Q', 'Q', 'S', 'S']" :key="dayName" class="text-center font-weight-bold text-primary flex-grow-1">
+              <span class="text-xs">{{ dayName }}</span>
+            </div>
+          </div>
 
           <!-- Dias do Calendário -->
-          <VRow>
-            <VCol
-              cols="12"
-              sm="6"
-              md="4"
-              lg="1.71"
+          <div class="calendar-grid">
+            <div
               v-for="(day, index) in calendarDays"
               :key="index"
-              class="pa-1"
+              :class="getDayClass(day)"
+              @click="selectDate(day)"
+              class="calendar-day"
+              :style="{
+                opacity: isCurrentMonth(day) ? 1 : 0.5,
+                borderWidth: isSameDay(day, selectedDate) ? '2px' : '1px',
+                borderColor: isSameDay(day, selectedDate) ? 'var(--v-primary-base)' : 'rgba(0,0,0,0.12)'
+              }"
             >
-              <VCard
-                :class="getDayClass(day)"
-                @click="selectDate(day)"
-                variant="tonal"
-                style="cursor: pointer; min-height: 80px; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: all 0.2s ease;"
-                :style="{
-                  opacity: isCurrentMonth(day) ? 1 : 0.5,
-                  borderWidth: isSameDay(day, selectedDate) ? '2px' : '1px',
-                  borderColor: isSameDay(day, selectedDate) ? 'var(--v-primary-base)' : 'rgba(0,0,0,0.12)'
-                }"
-                @mouseenter="$event.currentTarget.style.elevation = '8'"
-                @mouseleave="$event.currentTarget.style.elevation = '2'"
-              >
-                <div class="text-center w-100">
-                  <div class="text-caption font-weight-bold">{{ day.getDate() }}</div>
-                  <div v-if="getMinistryDateInfo(day) || getImportantDateInfo(day)" class="text-xs mt-1 d-flex justify-center gap-1">
-                    <VIcon v-if="getMinistryDateInfo(day)" size="small" color="#FF6B9D">
-                      mdi-music
-                    </VIcon>
-                    <VIcon v-if="getImportantDateInfo(day)" size="small" :color="getImportantDateInfo(day)?.importance === 'major' ? 'red' : 'orange'">
-                      mdi-star
-                    </VIcon>
-                  </div>
-                </div>
-              </VCard>
-            </VCol>
-          </VRow>
-
-          <!-- Legenda -->
-          <VRow class="mt-8">
-            <VCol cols="12">
-              <div class="text-caption font-weight-bold mb-3">Legenda:</div>
-              <div class="d-flex gap-4 flex-wrap">
-                <div class="d-flex align-center gap-2">
-                  <VIcon color="red" size="small">mdi-star</VIcon>
-                  <span class="text-caption">Festa Maior</span>
-                </div>
-                <div class="d-flex align-center gap-2">
-                  <VIcon color="orange" size="small">mdi-star</VIcon>
-                  <span class="text-caption">Festa Menor</span>
-                </div>
-                <div class="d-flex align-center gap-2">
-                  <VIcon color="#FF6B9D" size="small">mdi-music</VIcon>
-                  <span class="text-caption">Escala de Ministério</span>
-                </div>
-                <div class="d-flex align-center gap-2">
-                  <div class="d-flex align-center justify-center" style="width: 20px; height: 20px; border-radius: 4px; background-color: #e3f2fd;">
-                    <div style="width: 16px; height: 16px; border: 2px solid var(--v-primary-base); border-radius: 2px;"></div>
-                  </div>
-                  <span class="text-caption">Data Selecionada</span>
-                </div>
-                <div class="d-flex align-center gap-2">
-                  <div class="d-flex align-center justify-center" style="width: 20px; height: 20px; border-radius: 4px; background-color: #fff3e0;">
-                    <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--v-primary-base);"></div>
-                  </div>
-                  <span class="text-caption">Hoje</span>
+              <div class="text-center w-100">
+                <div class="text-xs font-weight-bold">{{ day.getDate() }}</div>
+                <div v-if="getMinistryDateInfo(day) || getImportantDateInfo(day)" class="d-flex justify-center gap-0-5">
+                  <VIcon v-if="getMinistryDateInfo(day)" size="x-small" color="#FF6B9D">
+                    mdi-music
+                  </VIcon>
+                  <VIcon v-if="getImportantDateInfo(day)" size="x-small" :color="getImportantDateInfo(day)?.importance === 'major' ? 'red' : 'orange'">
+                    mdi-star
+                  </VIcon>
                 </div>
               </div>
-            </VCol>
-          </VRow>
+            </div>
+          </div>
+
+          <!-- Legenda -->
+          <div class="mt-3 pt-3" style="border-top: 1px solid rgba(0,0,0,0.12);">
+            <div class="text-xs font-weight-bold mb-2">Legenda:</div>
+            <div class="d-flex gap-2 flex-wrap">
+              <div class="d-flex align-center gap-1">
+                <VIcon color="red" size="x-small">mdi-star</VIcon>
+                <span class="text-xs">Festa Maior</span>
+              </div>
+              <div class="d-flex align-center gap-1">
+                <VIcon color="orange" size="x-small">mdi-star</VIcon>
+                <span class="text-xs">Festa Menor</span>
+              </div>
+              <div class="d-flex align-center gap-1">
+                <VIcon color="#FF6B9D" size="x-small">mdi-music</VIcon>
+                <span class="text-xs">Ministério</span>
+              </div>
+            </div>
+          </div>
         </VCard>
       </VCol>
 
@@ -252,7 +229,7 @@ const redirecionarPagina = (link: string) => {
             Período Litúrgico Atual
           </VCardTitle>
 
-          <VAlert type="info" variant="tonal" class="mb-4" closable>
+          <VAlert type="info" variant="tonal" class="mb-4">
             <div class="d-flex align-center gap-2">
               <VIcon :color="liturgicalInfo.currentPeriod.color">{{ liturgicalInfo.currentPeriod.icon }}</VIcon>
               <div>
@@ -283,7 +260,7 @@ const redirecionarPagina = (link: string) => {
           <div class="mb-4">
             <div class="text-caption font-weight-bold mb-2">Progresso do Ano Litúrgico:</div>
             <VProgressLinear
-              :value="liturgicalInfo.yearProgress"
+              :model-value="liturgicalInfo.yearProgress"
               :color="liturgicalInfo.currentPeriod.color"
               height="8"
               class="mb-2"
@@ -293,10 +270,19 @@ const redirecionarPagina = (link: string) => {
 
           <!-- Data Importante -->
           <div v-if="getImportantDateInfo(selectedDate)" class="mt-6 pt-6" style="border-top: 1px solid rgba(0,0,0,0.12);">
-            <VAlert type="warning" variant="tonal" closable>
+            <VAlert type="warning" variant="tonal">
               <VIcon start>mdi-star-circle</VIcon>
               <div class="font-weight-bold">{{ getImportantDateInfo(selectedDate)?.name }}</div>
               <div class="text-caption">Festa {{ getImportantDateInfo(selectedDate)?.importance === 'major' ? 'Maior' : 'Menor' }}</div>
+            </VAlert>
+          </div>
+          <div v-if="getMinistryDateInfo(selectedDate)" class="mt-6 pt-6">
+            <VAlert type="info" variant="tonal">
+              <VIcon start color="#FF6B9D">mdi-music</VIcon>
+              <div class="font-weight-bold">{{ getMinistryDateInfo(selectedDate)?.title }}</div>
+              <div class="text-caption">{{ getMinistryDateInfo(selectedDate)?.description }}</div>
+              <div v-if="getMinistryDateInfo(selectedDate)?.link" @click="abirLink(getMinistryDateInfo(selectedDate)?.link!)">Link doc</div>
+              <div v-if="getMinistryDateInfo(selectedDate)?.arquivo" @click="redirecionarPagina(getMinistryDateInfo(selectedDate)?.arquivo!)">Link aplicação</div>
             </VAlert>
           </div>
         </VCard>
@@ -306,31 +292,61 @@ const redirecionarPagina = (link: string) => {
 </template>
 
 <style scoped>
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-day {
+  padding: 6px 4px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: rgba(255, 255, 255, 0.7);
+  min-height: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-day:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .selected-day {
   border-width: 2px !important;
   border-color: var(--v-primary-base) !important;
   background-color: var(--v-primary-base) !important;
   color: white !important;
+  font-weight: 600;
 }
 
 .today {
   box-shadow: inset 0 0 0 2px var(--v-primary-base);
-  background-color: rgba(255, 165, 0, 0.1) !important;
-}
-
-.important-major {
-  background-color: rgba(255, 0, 0, 0.15) !important;
-}
-
-.important-minor {
   background-color: rgba(255, 165, 0, 0.15) !important;
 }
 
+.important-major {
+  background-color: rgba(255, 0, 0, 0.1) !important;
+}
+
+.important-minor {
+  background-color: rgba(255, 165, 0, 0.1) !important;
+}
+
 .ministry-day {
-  background-color: rgba(255, 107, 157, 0.15) !important;
+  background-color: rgba(255, 107, 157, 0.1) !important;
 }
 
 .text-grey {
   color: rgba(0, 0, 0, 0.38);
+}
+
+.gap-0-5 {
+  gap: 2px;
 }
 </style>

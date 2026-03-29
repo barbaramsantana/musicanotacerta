@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import logo from './assets/logo.png';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 </script>
 
 <template>
@@ -48,6 +51,10 @@ import logo from './assets/logo.png';
       <router-view />
     </div>
   </VCard>
+  <VFooter v-if="route.path !== '/arquivo'" class="text-center py-3 text-subtitle-2 text-disabled">
+    Copyright © {{ new Date().getFullYear() }} por Bárbara Mota Santana |
+    <router-link to="/politica-privacidade" class="text-decoration-none">Política de Privacidade</router-link>
+  </VFooter>
 </template>
 
 <style scoped>

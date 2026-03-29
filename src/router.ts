@@ -4,6 +4,7 @@ import Momento from './components/Momento.vue'
 import Arquivo from './components/Arquivo.vue'
 import DashHome from './components/DashHome.vue'
 import Calendar from './components/Calendar.vue'
+import PrivacyPolicy from './components/PrivacyPolicy.vue'
 
 const routes = [
   { path: '/', name: 'DashHome', component: DashHome },
@@ -11,6 +12,7 @@ const routes = [
   { path: '/momento', name: 'Momento', component: Momento },
   { path: '/arquivo', name: 'Arquivo', component: Arquivo },
   { path: '/calendario', name: 'Calendar', component: Calendar },
+  { path: '/politica-privacidade', name: 'PrivacyPolicy', component: PrivacyPolicy },
 ]
 
 const router = createRouter({

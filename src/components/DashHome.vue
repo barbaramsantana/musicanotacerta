@@ -21,7 +21,7 @@ const features = ref([
   {
     icon: 'mdi-file-document',
     title: 'Arquivo Pessoal',
-    description: 'Gerencie seu acervo particular de músicas e arranjos',
+    description: 'Crie seu arquivo .html e import para utilizar as funcionalidades de leitura de arquivos',
     color: 'primary',
     redirect: '/arquivo'
   }
@@ -32,6 +32,7 @@ const router = useRouter();
 const abrirArquivo = (fileName: string) => {
  router.push({ name: 'Arquivo', query: { file: fileName } });
 }
+
 </script>
 
 <template>
@@ -51,29 +52,20 @@ const abrirArquivo = (fileName: string) => {
               to="/todas"
               size="large"
               variant="elevated"
-              class="bg-white text-primary px-8"
+              class="bg-white text-primary px-8 ma-2"
               elevation="2"
             >
               <VIcon start>mdi-music-box</VIcon>
               Explorar Músicas
             </VBtn>
-            <VBtn
-              to="/momento"
-              size="large"
-              variant="outlined"
-              class="border-white text-white px-8"
-            >
-              <VIcon start>mdi-hands-together</VIcon>
-              Por Momento
-            </VBtn>
              <VBtn
-              @click="abrirArquivo('lages.html')"
+              @click="router.push('/calendario')"
               size="large"
               variant="outlined"
-              class="border-white text-white px-8"
+              class="border-white text-white px-8 ma-2"
             >
-              <VIcon start>mdi-music</VIcon>
-              Lages
+              <VIcon start>mdi-calendar</VIcon>
+              Calendário
             </VBtn>
           </div>
         </div>
@@ -134,119 +126,6 @@ const abrirArquivo = (fileName: string) => {
               </p>
             </VCardText>
           </VCard>
-        </VCol>
-      </VRow>
-    </VContainer>
-
-    <!-- Moments Section -->
-    <!-- <VContainer class="my-12">
-      <VRow class="mb-12">
-        <VCol cols="12" class="text-center">
-          <h2 class="text-h3 font-weight-bold mb-2 text-primary">
-            Momentos da Missa
-          </h2>
-          <VDivider class="border-opacity-50 mx-auto" style="max-width: 100px;"></VDivider>
-          <p class="text-body-1 mt-4 text-medium-emphasis">
-            Encontre as músicas perfeitas para cada momento da celebração
-          </p>
-        </VCol>
-      </VRow>
-
-      <VRow>
-        <VCol
-          v-for="moment in moments"
-          :key="moment.title"
-          cols="12"
-          sm="6"
-          lg="4"
-        >
-          <VCard
-            class="h-100 moment-card"
-            variant="elevated"
-            :ripple="true"
-            to="/todas"
-          >
-            <div class="moment-header" style="background: linear-gradient(135deg, #CC4AF2 0%, #9f26bf 50%, #6b1782 100%); padding: 24px; text-align: center;">
-              <VIcon size="56" color="white" class="mb-3">
-                {{ moment.icon }}
-              </VIcon>
-              <h3 class="text-h6 text-white font-weight-bold">
-                {{ moment.title }}
-              </h3>
-            </div>
-
-            <VCardText class="pt-6 text-center">
-              <p class="text-body-2 text-medium-emphasis mb-4">
-                {{ moment.description }}
-              </p>
-              <VBtn
-                variant="text"
-                color="primary"
-                size="small"
-              >
-                Ver Músicas
-                <VIcon end>mdi-arrow-right</VIcon>
-              </VBtn>
-            </VCardText>
-          </VCard>
-        </VCol>
-      </VRow>
-    </VContainer> -->
-
-    <!-- Info Section -->
-    <!-- <VContainer class="my-12">
-      <VCard
-        variant="elevated"
-        class="overflow-hidden"
-        :style="{ background: 'linear-gradient(135deg, rgba(105, 92, 205, 0.1) 0%, rgba(31, 18, 131, 0.1) 100%)' }"
-      >
-        <VRow no-gutters>
-          <VCol cols="12" md="6" class="d-flex align-center pa-8">
-            <div>
-              <h2 class="text-h4 font-weight-bold text-primary mb-4">
-                Organize Sua Fé
-              </h2>
-              <p class="text-body-1 text-medium-emphasis mb-4">
-                Crie sua própria biblioteca de músicas, organize por categoria e mantenha seus favoritos sempre à mão. Perfeito para ministros da música, padres, catequistas e todos que buscam enriquecer seus momentos de oração.
-              </p>
-              <p class="text-body-2 text-secondary">
-                ✓ Acesso completo à biblioteca<br>
-                ✓ Organização personalizada<br>
-                ✓ Seleção por momento litúrgico<br>
-                ✓ Interface intuitiva e amigável
-              </p>
-            </div>
-          </VCol>
-          <VCol cols="12" md="6" class="d-flex align-center pa-8 justify-center">
-            <VIcon size="250" color="primary" class="opacity-50">
-              mdi-music-circle
-            </VIcon>
-          </VCol>
-        </VRow>
-      </VCard>
-    </VContainer> -->
-
-    <!-- CTA Section -->
-    <VContainer class="my-12">
-      <VRow class="mb-4">
-        <VCol cols="12" class="text-center">
-          <h2 class="text-h3 font-weight-bold mb-4">
-            Pronto para Começar?
-          </h2>
-          <p class="text-body-1 text-medium-emphasis mb-8">
-            Explore nossa coleção completa de músicas católicas
-          </p>
-          <VBtn
-            to="/todas"
-            size="x-large"
-            variant="elevated"
-            color="primary"
-            class="px-12"
-            elevation="2"
-          >
-            <VIcon start>mdi-music</VIcon>
-            Acessar Todas as Músicas
-          </VBtn>
         </VCol>
       </VRow>
     </VContainer>
