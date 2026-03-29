@@ -29,9 +29,9 @@ const features = ref([
 
 
 const router = useRouter();
-const abrirArquivo = (fileName: string) => {
- router.push({ name: 'Arquivo', query: { file: fileName } });
-}
+// const abrirArquivo = (fileName: string) => {
+//  router.push({ name: 'Arquivo', query: { file: fileName } });
+// }
 
 </script>
 
